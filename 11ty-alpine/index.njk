@@ -10,11 +10,57 @@ pagination:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
   <title>My Record Collection</title>
+
+  <style>
+    body {
+      font-family: sans-serif; 
+    }
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .records > * + * {
+      margin-top: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    nav {
+      margin-top: 2rem;
+    }
+
+    .pages {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pages a {
+      border: 1px solid #000000;
+      padding: 0.5rem;
+      border-radius: 5px;
+      display: flex;
+      text-decoration: none;
+    }
+
+    .pages a:where(:link, :visited) {
+      color: #000;
+    }
+
+    .pages a:where(:focus, :hover, [aria-current]) {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
   <h1>My Record Collection</h1>
 
-  <ol>
+  <ol class="records">
     {%- for record in pagination.items %}
     <li>
       <h2>{{ record.title }}</h2>
@@ -23,9 +69,8 @@ pagination:
     {%- endfor %}
   </ol>
 
-  <nav aria-labelledby="pagination">
-    <h2 id="pagination">Select a page</h2>
-    <ol>
+  <nav aria-label="Select a page">
+    <ol class="pages">
       {%- for page_entry in pagination.pages %}
         {%- set page_url = pagination.hrefs[loop.index0] -%}
         <li>
