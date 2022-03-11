@@ -10,5 +10,13 @@
 <body>
   <h1>My Record Collection</h1>
 
+  <ol class="records">
+    {% for record in records %}
+    <li>
+      <h2>{{ record.title }}</h2>
+      <p>Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.</p>
+    </li>
+    {% endfor %}
+  </ol>
 </body>
 </html>
