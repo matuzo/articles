@@ -22,5 +22,19 @@ pagination:
     </li>
     {%- endfor %}
   </ol>
+
+  <nav aria-labelledby="pagination">
+    <h2 id="pagination">Select a page</h2>
+    <ol>
+      {%- for page_entry in pagination.pages %}
+        {%- set page_url = pagination.hrefs[loop.index0] -%}
+        <li>
+          <a href="{{ page_url }}"{% if page.url == page_url %} aria-current="page"{% endif %}>
+            Page {{ loop.index }}
+          </a>
+        </li>
+      {%- endfor %}
+    </ol>
+  </nav>
 </body>
 </html>
