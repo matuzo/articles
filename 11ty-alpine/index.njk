@@ -60,26 +60,32 @@ pagination:
 <body>
   <h1>My Record Collection</h1>
 
-  <ol class="records">
-    {%- for record in pagination.items %}
-    <li>
-      <h2>{{ record.title }}</h2>
-      <p>Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.</p>
-    </li>
-    {%- endfor %}
-  </ol>
+  <div class="collection">
+    <p id="message">Page {{ pagination.pageNumber + 1 }} of {{ records.length }} results</p>
 
-  <nav aria-label="Select a page">
-    <ol class="pages">
-      {%- for page_entry in pagination.pages %}
-        {%- set page_url = pagination.hrefs[loop.index0] -%}
+    <div aria-labelledby="message" role="region">
+      <ol class="records">
+        {%- for record in pagination.items %}
         <li>
-          <a href="{{ page_url }}"{% if page.url == page_url %} aria-current="page"{% endif %}>
-            Page {{ loop.index }}
-          </a>
+          <h2>{{ record.title }}</h2>
+          <p>Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.</p>
         </li>
-      {%- endfor %}
-    </ol>
-  </nav>
+        {%- endfor %}
+      </ol>
+    </div>
+
+    <nav aria-label="Select a page">
+      <ol class="pages">
+        {%- for page_entry in pagination.pages %}
+          {%- set page_url = pagination.hrefs[loop.index0] -%}
+          <li>
+            <a href="{{ page_url }}"{% if page.url == page_url %} aria-current="page"{% endif %}>
+              Page {{ loop.index }}
+            </a>
+          </li>
+        {%- endfor %}
+      </ol>
+    </nav>
+  </div>
 </body>
 </html>
