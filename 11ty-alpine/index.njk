@@ -23,8 +23,8 @@ pagination:
       <ol class="records">
         {%- for record in pagination.items %}
         <li>
-          <h2>{{ record.title }}</h2>
-          <p>Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.</p>
+          <strong>{{ record.title }}</strong><br>
+          Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.
         </li>
         {%- endfor %}
       </ol>
