@@ -39,7 +39,12 @@ nav {
     color: #000;
 }
 
-.pages a:where(:focus, :hover, [aria-current]) {
+.pages a:where(:focus, :hover) {
+    background-color: #6c6c6c;
+    color: #ffffff;
+}
+
+.pages a:where([aria-current]) {
     background-color: #000000;
     color: #ffffff;
 }
