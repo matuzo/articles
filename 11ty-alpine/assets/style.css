@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif; 
+    line-height: 1.5;
+}
+
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.records > * + * {
+    margin-top: 2rem;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+nav {
+    margin-top: 2rem;
+}
+
+.pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pages a {
+    border: 1px solid #000000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    text-decoration: none;
+}
+
+.pages a:where(:link, :visited) {
+    color: #000;
+}
+
+.pages a:where(:focus, :hover, [aria-current]) {
+    background-color: #000000;
+    color: #ffffff;
+}
