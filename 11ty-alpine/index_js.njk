@@ -1,0 +1,82 @@
+---
+pagination:
+  data: records
+  size: 5
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <title>My Record Collection</title>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <h1>My Record Collection</h1>
+
+<div class="collection" x-data="collection">
+  <fieldset class="filters" hidden>
+	  <legend>Filter by</legend>
+
+    <label for="artist">Artist</label>
+    <select id="artist" x-model="filters.artist">
+      <option value="">All</option>
+      <template x-for="artist in artists">
+        <option x-text="artist"></option>
+      </template>
+    </select>
+    <label for="decade">Decade</label>
+    <select id="decade" x-model="filters.year">
+      <option value="">All</option>
+      <template x-for="year in decades">
+        <option :value="year" x-text="`${year}0`"></option>
+      </template>
+    </select>
+  </fieldset>
+
+  <p id="message">Showing <output x-text="message">{{ records.length }} records</output></p>
+	
+	<div aria-labelledby="message" role="region" tabindex="-1" x-ref="region">
+	  <ol class="records">	
+			<template x-for="record in page">
+				<li>
+				  <strong x-text="record.title"></strong><br>
+				  Released in <time :datetime="record.year" x-text="record.year"></time> by <span x-text="record.artist"></span>.
+				</li>
+			</template>
+			
+			{%- for record in pagination.items %}
+        <li x-ignore>
+          <strong>{{ record.title }}</strong><br>
+          Released in <time datetime="{{ record.year }}">{{ record.year }}</time> by {{ record.artist }}.
+        </li>
+      {%- endfor %}
+		</ol>
+    </div>
+
+    <nav aria-label="Select a page">
+      <ol class="pages">
+        <template x-for="idx in numOfPages">
+          <li>
+            <a :href="`/${idx}`" x-text="`Page ${idx}`" :aria-current="idx === currentPage + 1 ? 'page' : false" @click.prevent="currentPage = idx - 1; $nextTick(() => { $refs.region.focus() });"></a>
+          </li>
+        </template>
+
+        {%- for page_entry in pagination.pages %}
+          {%- set page_url = pagination.hrefs[loop.index0] -%}
+          <li x-ignore>
+            <a href="{{ page_url }}"{% if page.url == page_url %} aria-current="page"{% endif %}>
+              Page {{ loop.index }}
+            </a>
+          </li>
+        {%- endfor %}
+      </ol>
+    </nav>
+  </div>
+
+  <script src="/assets/filter.js"></script>
+  <script src="https://unpkg.com/alpinejs@3.9.1/dist/cdn.min.js" integrity="sha384-mDHH3kdyMS0F6QcfHCxEgPMMjssTurzucc7Jct3g1GOfB4p7PxJuugPP1NOLvE7I" crossorigin="anonymous"></script>
+</body>
+</html>

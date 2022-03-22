@@ -48,3 +48,16 @@ nav {
     background-color: #6c6c6c;
     color: #ffffff;
 }
+
+.alpine [x-ignore] {
+    display: none;
+}
+
+.filters {
+    display: block;
+}
+
+html:not(.alpine) .filters {
+	display: block;
+	visibility: hidden;
+}
