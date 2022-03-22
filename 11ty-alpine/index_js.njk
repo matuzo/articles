@@ -1,6 +1,6 @@
 ---
 pagination:
-  data: records
+  data: records_full
   size: 5
 ---
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ pagination:
     </select>
   </fieldset>
 
-  <p id="message">Showing <output x-text="message">{{ records.length }} records</output></p>
+  <p id="message">Showing <output x-text="message">{{ records_full.length }} records</output></p>
 	
 	<div aria-labelledby="message" role="region" tabindex="-1" x-ref="region">
 	  <ol class="records">	

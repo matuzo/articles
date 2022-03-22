@@ -1,5 +1,4 @@
 document.addEventListener('alpine:init', () => {
-  document.documentElement.classList.add('alpine')
 
   Alpine.data('collection', () => ({
     artists: [],
@@ -21,6 +20,7 @@ document.addEventListener('alpine:init', () => {
       this.records = await (await fetch('/_data/records_full.json')).json();
       this.artists = [...new Set(this.records.map(record => record.artist))].sort()
 		  this.decades = [...new Set(this.records.map(record => record.year.toString().slice(0, -1)))].sort()
+      document.documentElement.classList.add('alpine')
     },
     get filteredRecords() {
       const filtered = this.records.filter((item) => {
