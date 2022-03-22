@@ -1,37 +1,37 @@
 [
-    {
-      "artist": "Akne Kid Joe",
-      "title": "Die große Palmöllüge",
-      "year": 2020
-    },
-    {
-      "artist": "Bring me the Horizon",
-      "title": "Post Human: Survial Horror",
-      "year": 2020
-    },
-    {
-      "artist": "Idles",
-      "title": "Joy as an Act of Resistance",
-      "year": 2018
-    },
-    {
-      "artist": "Beastie Boys",
-      "title": "Licensed to Ill",
-      "year": 1986
-    },
-    {
-      "artist": "Beastie Boys",
-      "title": "Paul's Boutique",
-      "year": 1989
-    },
-    {
-      "artist": "Beastie Boys",
-      "title": "Check Your Head",
-      "year": 1992
-    },
-    {
-      "artist": "Beastie Boys",
-      "title": "Ill Communication",
-      "year": 1994
-    }
-  ]
+  {
+    "artist": "Akne Kid Joe",
+    "title": "Die große Palmöllüge",
+    "year": 2020
+  },
+  {
+    "artist": "Bring me the Horizon",
+    "title": "Post Human: Survial Horror",
+    "year": 2020
+  },
+  {
+    "artist": "Idles",
+    "title": "Joy as an Act of Resistance",
+    "year": 2018
+  },
+  {
+    "artist": "Beastie Boys",
+    "title": "Licensed to Ill",
+    "year": 1986
+  },
+  {
+    "artist": "Beastie Boys",
+    "title": "Paul's Boutique",
+    "year": 1989
+  },
+  {
+    "artist": "Beastie Boys",
+    "title": "Check Your Head",
+    "year": 1992
+  },
+  {
+    "artist": "Beastie Boys",
+    "title": "Ill Communication",
+    "year": 1994
+  }
+]
